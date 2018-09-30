@@ -1,3 +1,24 @@
+<h1>Clicky-Game</h1>
+<h2>Author: Morgan Hamlin</h2>
+<br>
+<h3>Technologies used: HTML5, CSS, Bootstrap, create-react-app</h3>
+<br>
+<h3>Instructions</h3>
+<h5>
+Click on a teen titan to increase your score, but only click once! If you click the same titan twice it's game over! Once the game is over, refresh the page to begin again.
+</h5>
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
