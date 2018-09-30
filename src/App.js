@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import CharacterCard from "./components/CharacterCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import friends from "./friends.json";
+import characters from "./characters.json";
 import "./App.css";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    friends,
+    characters,
     count: 0
     
   };
 
-  removeFriend = (id)  => {
+  removeCharacter = (id)  => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     //const elementArray = this.state.friends.filter(friend => friend.id === id);
     //console.log(elementArray[0]);
@@ -30,8 +30,8 @@ class App extends Component {
     }
     this.setState({ count: this.state.count + 1 });
     console.log(this.state.count);
-    console.log(this.state.friends);
-    let oldElement = this.state.friends.find(friend => friend.id === id);
+    console.log(this.state.characters);
+    let oldElement = this.state.characters.find(friend => friend.id === id);
     console.log(oldElement.id);
     var newId = id + 20;
     let newElement = {
@@ -42,14 +42,14 @@ class App extends Component {
       value: 1
 
     };
-    const friends = this.state.friends;
+    const characters = this.state.characters;
     //console.log(newElement);
-    friends.splice(oldElement.id, 1, newElement);
-    console.log(friends);
-    shuffle(friends);
-    console.log(friends)
+    characters.splice(oldElement.id, 1, newElement);
+    console.log(characters);
+    shuffle(characters);
+    console.log(characters);
 
-    this.setState({friends});
+    this.setState({characters});
     //const friends = this.state.friends.filter(friend => friend.id !== id || friend.id === id);
    // this.setState({ friends });
     //console.log("Array without clicked element:" + friends[0]);
@@ -99,16 +99,16 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Friends List</Title>
+        <Title>Teen Titans Card Game</Title>
         <Title>Score: {this.state.count}</Title>
         
-        {this.state.friends.map(friend => (
-          <FriendCard
-            removeFriend={this.removeFriend}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
+        {this.state.characters.map(character => (
+          <CharacterCard
+            removeCharacter={this.removeCharacter}
+            id={character.id}
+            key={character.id}
+            name={character.name}
+            image={character.image}
           />
         ))}
       </Wrapper>
