@@ -25,7 +25,7 @@ class App extends Component {
     }*/
 
     if(id >= 19) {
-      document.write("U FREAKIN' LOSE !!");
+      document.write("GAME OVER.");
       return;
     }
     this.setState({ count: this.state.count + 1 });
