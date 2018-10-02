@@ -7,12 +7,12 @@ import "./App.css";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
+
   state = {
     characters,
     count: 0
-    
   };
-
+  
   removeCharacter = (id)  => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     //const elementArray = this.state.friends.filter(friend => friend.id === id);
@@ -25,16 +25,19 @@ class App extends Component {
     }*/
 
     if(id >= 19) {
-      document.write("GAME OVER.");
+      this.setState({count: 0});
+      //this.setState({state});
+      //this.setState({id});
+      alert("End game");
       return;
     }
     this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
+    //console.log(this.state.count);
     console.log(this.state.characters);
     let oldElement = this.state.characters.find(friend => friend.id === id);
     console.log(oldElement.id);
     var newId = id + 20;
-    let newElement = {
+    const newElement = {
       id: newId, 
       name: oldElement.name,
       image: oldElement.image,
@@ -42,14 +45,18 @@ class App extends Component {
       value: 1
 
     };
-    const characters = this.state.characters;
+    const Characters = this.state.characters;
     //console.log(newElement);
-    characters.splice(oldElement.id, 1, newElement);
-    console.log(characters);
-    shuffle(characters);
-    console.log(characters);
+    console.log("Before Splice: " + Characters[0].id);
+    console.log(newElement.id);
+    console.log(oldElement.id);
+    console.log(Characters);
+    Characters.splice(oldElement.id, 1, newElement);
+    console.log("After Splice and Before Shuffle: " + Characters[0].id);
+    shuffle(Characters);
+    console.log("After Shuffle: " + Characters[0].id);
 
-    this.setState({characters});
+    this.setState({Characters});
     //const friends = this.state.friends.filter(friend => friend.id !== id || friend.id === id);
    // this.setState({ friends });
     //console.log("Array without clicked element:" + friends[0]);
